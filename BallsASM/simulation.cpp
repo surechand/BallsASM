@@ -13,7 +13,7 @@ void Simulation::init() {
     sf::Event event;
     //float speedX, speedY, accX, accY;
     for (int i = 0; i < ballsNum; i++) {
-        addBall((float)(rand() % WindowLenght), (float)(rand() % WindowHeight), (float)(20 + rand() % 50));
+        addBall((float)(rand() % WindowLenght), (float)(rand() % WindowHeight), (float)(15 + rand() % 50));
     }
     vecBalls.shrink_to_fit();
     while (window.isOpen())

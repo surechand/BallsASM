@@ -1,3 +1,24 @@
-﻿  main.cpp
+﻿  simulation.cpp
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(93,34): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(106,91): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(106,69): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(113,61): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(113,53): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
   AssemblyInfo.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
   BallsASM.vcxproj -> F:\JA\semestr 5 projekt\BallsASM\x64\Debug\BallsASM.exe

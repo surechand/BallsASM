@@ -25,6 +25,7 @@ namespace CppCLRWinformsProjekt {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::Button^ startButton;
 	private: System::Windows::Forms::Button^ stopButton;
 	private: System::Windows::Forms::TrackBar^ threadBar;
@@ -38,11 +39,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ timeLabel;
 	private: System::Windows::Forms::Label^ speedLabel;
 
-
-
-
-	private:
-		System::ComponentModel::Container^ components;
+	private: System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
