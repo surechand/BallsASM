@@ -6,14 +6,14 @@ class Ball : public sf::Drawable {
 	sf::CircleShape ball;
 	float posX, posY;
 	float speedX, speedY;
-	float accX, accY;
 	float radius;
 	int id;
 	bool canMove;
+
 public:
 	Ball() = default;
 
-	Ball(float posX, float posY, float radius);
+	Ball(float posX, float posY, float radius, float speedX, float speedY);
 
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
 
@@ -29,7 +29,11 @@ public:
 
 	float getSpeedX() const;
 
+	void setSpeedX(float speedX);
+
 	float getSpeedY() const;
+
+	void setSpeedY(float speedY);
 
 	float getAccX() const;
 

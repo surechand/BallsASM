@@ -4,6 +4,7 @@
 #include <random>
 #include <vector>
 #include <chrono>
+#include "windows.h"
 
 class Simulation {
 	int threadsNum;
@@ -13,6 +14,7 @@ class Simulation {
 	sf::ContextSettings settings;
 	sf::RenderWindow window;
 	int mouseX = 0, mouseY = 0;
+	float friction;
 public:
 	std::vector<Ball> vecBalls;
 	Simulation(int threads, int balls);
@@ -23,5 +25,5 @@ public:
 	bool doBallsOverlap(Ball ball1, Ball ball2);
 	float distanceBetweenBalls(Ball ball1, Ball ball2);
 	void pickBall(sf::Event& action, Ball& ball);
-	bool ballInBounds(Ball& ball);
+	float randomGenerator(float min, float max);
 };

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "ball.h"
 
-Ball::Ball(float posX, float posY, float radius) : posX(posX), posY(posY), radius(radius) {
+Ball::Ball(float posX, float posY, float radius, float speedX, float speedY) : posX(posX), posY(posY), radius(radius), speedX(speedX), speedY(speedY) {
     this->ball.setPosition(posX, posY);
     this->ball.setOrigin(radius, radius);
     this->ball.setRadius(radius);
@@ -9,10 +9,6 @@ Ball::Ball(float posX, float posY, float radius) : posX(posX), posY(posY), radiu
     this->ball.setOutlineColor(sf::Color::Black);
     this->ball.setOutlineThickness(1);
     this->radius++;
-    this->speedX = 0;
-    this->speedY = 0;
-    this->accX = 0;
-    this->accY = 0;
     this->canMove = false;
 }
 
@@ -44,16 +40,16 @@ float Ball::getSpeedX() const {
     return speedX;
 }
 
+void Ball::setSpeedX(float speedX) {
+    Ball::speedX = speedX;
+}
+
 float Ball::getSpeedY() const {
     return speedY;
 }
 
-float Ball::getAccX() const {
-    return accX;
-}
-
-float Ball::getAccY() const {
-    return accY;
+void Ball::setSpeedY(float speedY) {
+    Ball::speedY = speedY;
 }
 
 float Ball::getRadius() const {

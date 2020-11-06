@@ -27,7 +27,7 @@ namespace CppCLRWinformsProjekt {
 		}
 
 	private: System::Windows::Forms::Button^ startButton;
-	private: System::Windows::Forms::Button^ stopButton;
+
 	private: System::Windows::Forms::TrackBar^ threadBar;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
@@ -45,7 +45,6 @@ namespace CppCLRWinformsProjekt {
 		void InitializeComponent(void)
 		{
 			this->startButton = (gcnew System::Windows::Forms::Button());
-			this->stopButton = (gcnew System::Windows::Forms::Button());
 			this->threadBar = (gcnew System::Windows::Forms::TrackBar());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -66,23 +65,11 @@ namespace CppCLRWinformsProjekt {
 				static_cast<System::Byte>(238)));
 			this->startButton->Location = System::Drawing::Point(25, 17);
 			this->startButton->Name = L"startButton";
-			this->startButton->Size = System::Drawing::Size(93, 36);
+			this->startButton->Size = System::Drawing::Size(93, 78);
 			this->startButton->TabIndex = 0;
 			this->startButton->Text = L"Start";
 			this->startButton->UseVisualStyleBackColor = true;
 			this->startButton->Click += gcnew System::EventHandler(this, &Form1::startButton_Click);
-			// 
-			// stopButton
-			// 
-			this->stopButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->stopButton->Location = System::Drawing::Point(25, 59);
-			this->stopButton->Name = L"stopButton";
-			this->stopButton->Size = System::Drawing::Size(93, 36);
-			this->stopButton->TabIndex = 1;
-			this->stopButton->Text = L"Stop";
-			this->stopButton->UseVisualStyleBackColor = true;
-			this->stopButton->Click += gcnew System::EventHandler(this, &Form1::stopButton_Click);
 			// 
 			// threadBar
 			// 
@@ -221,7 +208,6 @@ namespace CppCLRWinformsProjekt {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->threadBar);
-			this->Controls->Add(this->stopButton);
 			this->Controls->Add(this->startButton);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
