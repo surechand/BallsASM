@@ -1,0 +1,3 @@
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\x64\Release\BallsASM.Form1.resources
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\x64\Release\BallsASM.vcxproj.GenerateResource.cache
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\x64\Release\BallsASM.vcxprojAssemblyReference.cache

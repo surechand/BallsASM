@@ -1,0 +1,14 @@
+﻿  ball.cpp
+  main.cpp
+  simulation.cpp
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(37,47): warning C4244: "argument": konwersja z "float" do "unsigned int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(37,33): warning C4244: "argument": konwersja z "float" do "unsigned int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(183,34): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(261,79): warning C4244: "argument": konwersja z "_Rep" do "unsigned int", możliwa utrata danych
+          with
+          [
+              _Rep=__int64
+          ]
+  Generowanie kodu...
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(175): warning C4715: "Simulation::init”: niewszystkie ścieżki kodu zwracają wartość
+  BallsASM.vcxproj -> F:\JA\semestr 5 projekt\BallsASM\x64\Release\BallsASM.exe

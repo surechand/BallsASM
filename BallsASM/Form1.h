@@ -1,3 +1,22 @@
+﻿/*;-------------------------------------------------------------------------
+; SYMULATOR ZDERZEŃ
+; KRZYSZTOF DEC GR.1
+; INFORMATYKA SSI SEMESTR 5 2020/2021
+; v.0.1 - stworzona solucja w visual studio 2019 (13.10.2020)
+; v.0.1.1 - stworzony interfejs graficzny do obsługi programu (14.10.2020)
+; v.0.2 - dodanie bibliotek CppDLL oraz AsmDLL do projektu (27.10.2020)
+; v.0.3 - implementacja interfejsu graficznego symulacji oraz dodanie podstaw ruchu kul (12.11.2020)
+; v.0.3.1 - dodanie obsługi wykrywania zderzeń oraz tworzenia losowych symulacji (14.11.2020)
+; v.0.4 - implementacja mechanizmu odbić kul od krawędzi okna symulacji oraz rozdzielania kul nachodzących na siebie (2.12.2020)
+; v.0.5 - implementacja algorytmu zderzeń między kulami w C++ (9.01.2021)
+; v.0.5.1 - dodanie sił tarcia do symulacji ruchu kul (10.01.2021)
+; v.0.5.2 - dodanie obsługi wątków w symulacji zderzeń oraz ruchu kul (16.01.2021)
+; v.0.6 - implementacja algorytmów zderzeń oraz ruchu kul w asemblerze (5.02.2021)
+; v.0.6.1 - dodanie pomiarów czasu wykonania algorytmów (7.02.2021)
+; v.0.7 - poprawiona implementacja algorytmów w asemblerze, usprawnienie działania w trybie Release w VS2019 (11.02.2021)
+; v.1.0 - finalna wersja programu zgodna z założeniami projektu (12.02.2021)
+;-------------------------------------------------------------------------*/
+
 #pragma once
 #include "simulation.h"
 
@@ -33,11 +52,13 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::RadioButton^ cPlusOptionButton;
 	private: System::Windows::Forms::RadioButton^ asmOptionButton;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TrackBar^ ballBar;
+
+
+
 	private: System::Windows::Forms::Label^ timeLabel;
 	private: System::Windows::Forms::Label^ speedLabel;
+	private: System::Windows::Forms::Label^ speedLabel2;
+	private: System::Windows::Forms::Label^ timeLabel2;
 
 	private: System::ComponentModel::Container^ components;
 
@@ -50,13 +71,11 @@ namespace CppCLRWinformsProjekt {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->cPlusOptionButton = (gcnew System::Windows::Forms::RadioButton());
 			this->asmOptionButton = (gcnew System::Windows::Forms::RadioButton());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->ballBar = (gcnew System::Windows::Forms::TrackBar());
 			this->timeLabel = (gcnew System::Windows::Forms::Label());
 			this->speedLabel = (gcnew System::Windows::Forms::Label());
+			this->speedLabel2 = (gcnew System::Windows::Forms::Label());
+			this->timeLabel2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->threadBar))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ballBar))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// startButton
@@ -91,7 +110,7 @@ namespace CppCLRWinformsProjekt {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(116, 20);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"Liczba w�tk�w:";
+			this->label1->Text = L"Liczba wątków:";
 			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
 			// 
 			// label2
@@ -134,51 +153,16 @@ namespace CppCLRWinformsProjekt {
 			this->asmOptionButton->UseVisualStyleBackColor = true;
 			this->asmOptionButton->CheckedChanged += gcnew System::EventHandler(this, &Form1::asmOptionButton2_CheckedChanged);
 			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->label3->Location = System::Drawing::Point(354, 101);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(18, 20);
-			this->label3->TabIndex = 12;
-			this->label3->Text = L"1";
-			this->label3->Click += gcnew System::EventHandler(this, &Form1::label3_Click);
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->label4->Location = System::Drawing::Point(232, 101);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(100, 20);
-			this->label4->TabIndex = 11;
-			this->label4->Text = L"Liczba pi�ek: ";
-			this->label4->Click += gcnew System::EventHandler(this, &Form1::label4_Click);
-			// 
-			// ballBar
-			// 
-			this->ballBar->Location = System::Drawing::Point(140, 69);
-			this->ballBar->Maximum = 64;
-			this->ballBar->Minimum = 1;
-			this->ballBar->Name = L"ballBar";
-			this->ballBar->Size = System::Drawing::Size(362, 45);
-			this->ballBar->TabIndex = 10;
-			this->ballBar->Value = 1;
-			this->ballBar->Scroll += gcnew System::EventHandler(this, &Form1::ballBar_Scroll);
-			// 
 			// timeLabel
 			// 
 			this->timeLabel->AutoSize = true;
 			this->timeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->timeLabel->Location = System::Drawing::Point(508, 75);
+			this->timeLabel->Location = System::Drawing::Point(155, 88);
 			this->timeLabel->Name = L"timeLabel";
-			this->timeLabel->Size = System::Drawing::Size(127, 20);
+			this->timeLabel->Size = System::Drawing::Size(218, 20);
 			this->timeLabel->TabIndex = 13;
-			this->timeLabel->Text = L"Czas wykonania:";
+			this->timeLabel->Text = L"Średni czas przemieszczenia:";
 			this->timeLabel->Click += gcnew System::EventHandler(this, &Form1::label5_Click);
 			// 
 			// speedLabel
@@ -186,11 +170,34 @@ namespace CppCLRWinformsProjekt {
 			this->speedLabel->AutoSize = true;
 			this->speedLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->speedLabel->Location = System::Drawing::Point(641, 75);
+			this->speedLabel->Location = System::Drawing::Point(379, 88);
 			this->speedLabel->Name = L"speedLabel";
 			this->speedLabel->Size = System::Drawing::Size(18, 20);
 			this->speedLabel->TabIndex = 14;
 			this->speedLabel->Text = L"0";
+			this->speedLabel->Click += gcnew System::EventHandler(this, &Form1::speedLabel_Click);
+			// 
+			// speedLabel2
+			// 
+			this->speedLabel2->AutoSize = true;
+			this->speedLabel2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->speedLabel2->Location = System::Drawing::Point(608, 88);
+			this->speedLabel2->Name = L"speedLabel2";
+			this->speedLabel2->Size = System::Drawing::Size(18, 20);
+			this->speedLabel2->TabIndex = 16;
+			this->speedLabel2->Text = L"0";
+			// 
+			// timeLabel2
+			// 
+			this->timeLabel2->AutoSize = true;
+			this->timeLabel2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->timeLabel2->Location = System::Drawing::Point(446, 88);
+			this->timeLabel2->Name = L"timeLabel2";
+			this->timeLabel2->Size = System::Drawing::Size(157, 20);
+			this->timeLabel2->TabIndex = 15;
+			this->timeLabel2->Text = L"Średni czas zderzeń:";
 			// 
 			// Form1
 			// 
@@ -198,11 +205,10 @@ namespace CppCLRWinformsProjekt {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->ClientSize = System::Drawing::Size(733, 126);
+			this->Controls->Add(this->speedLabel2);
+			this->Controls->Add(this->timeLabel2);
 			this->Controls->Add(this->speedLabel);
 			this->Controls->Add(this->timeLabel);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->ballBar);
 			this->Controls->Add(this->asmOptionButton);
 			this->Controls->Add(this->cPlusOptionButton);
 			this->Controls->Add(this->label2);
@@ -212,10 +218,9 @@ namespace CppCLRWinformsProjekt {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"Form1";
-			this->Text = L"Form1";
+			this->Text = L"BallsASM";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->threadBar))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ballBar))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -225,14 +230,17 @@ namespace CppCLRWinformsProjekt {
 		System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		}
 		System::Void startButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			Simulation simulation(threadBar->Value, ballBar->Value);
 			if (cPlusOptionButton->Checked) {
-				simulation.setDllMethod(1);
-				simulation.init();
+				Simulation simulation(threadBar->Value, threadBar->Value, 1);
+				long long* averageTimes = simulation.init();
+				speedLabel->Text = averageTimes[0].ToString() + "us";
+				speedLabel2->Text = averageTimes[1].ToString() + "us";
 			}
 			else if (asmOptionButton->Checked) {
-				simulation.setDllMethod(2);
-				simulation.init();
+				Simulation simulation(threadBar->Value, threadBar->Value, 2);
+				long long* averageTimes = simulation.init();
+				speedLabel->Text = averageTimes[0].ToString() + "us";
+				speedLabel2->Text = averageTimes[1].ToString() + "us";
 			}
 		}
 		System::Void stopButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -248,9 +256,6 @@ namespace CppCLRWinformsProjekt {
 		System::Void threadBar_Scroll(System::Object^ sender, System::EventArgs^ e) {
 			label2->Text = threadBar->Value.ToString();
 		}
-		System::Void ballBar_Scroll(System::Object^ sender, System::EventArgs^ e) {
-			label3->Text = ballBar->Value.ToString();
-		}
 		System::Void cPlusOptionButton_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		}
 		System::Void asmOptionButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -259,5 +264,7 @@ namespace CppCLRWinformsProjekt {
 		}
 		System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 		}
-	};
+	private: System::Void speedLabel_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

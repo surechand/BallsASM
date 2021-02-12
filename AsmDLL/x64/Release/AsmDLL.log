@@ -1,0 +1,4 @@
+﻿  Assembling main.asm...
+     Trwa tworzenie biblioteki F:\JA\semestr 5 projekt\BallsASM\x64\Release\AsmDLL.lib i obiektu F:\JA\semestr 5 projekt\BallsASM\x64\Release\AsmDLL.exp
+  LINK : określono opcję /LTCG, lecz generowanie kodu nie było wymagane; usuń opcję /LTCG z wiersza polecenia konsolidatora w celu podwyższenia wydajności konsolidatora
+  AsmDLL.vcxproj -> F:\JA\semestr 5 projekt\BallsASM\x64\Release\AsmDLL.dll

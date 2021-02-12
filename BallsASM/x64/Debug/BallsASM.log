@@ -1,34 +1,15 @@
-﻿  main.cpp
+﻿  ball.cpp
+  main.cpp
   simulation.cpp
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(17,35): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(17,69): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(22,35): warning C4101: "elapsed": lokalna zmienna, do której nie istnieje odwołanie
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(113,34): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(126,91): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(126,69): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(133,61): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(133,53): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(148,79): warning C4244: "argument": konwersja z "_Rep" do "unsigned int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(37,47): warning C4244: "argument": konwersja z "float" do "unsigned int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(37,33): warning C4244: "argument": konwersja z "float" do "unsigned int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(183,34): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(261,79): warning C4244: "argument": konwersja z "_Rep" do "unsigned int", możliwa utrata danych
           with
           [
               _Rep=__int64
           ]
   Generowanie kodu...
+F:\JA\semestr 5 projekt\BallsASM\BallsASM\simulation.cpp(175): warning C4715: "Simulation::init”: niewszystkie ścieżki kodu zwracają wartość
   AssemblyInfo.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
   BallsASM.vcxproj -> F:\JA\semestr 5 projekt\BallsASM\x64\Debug\BallsASM.exe
